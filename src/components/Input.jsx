@@ -1,6 +1,14 @@
 import React from "react";
 
-const Input = ({ type, name, value, placeholder, error, errorMessage }) => {
+const Input = ({
+  type,
+  name,
+  value,
+  placeholder,
+  error,
+  errorMessage,
+  onChange,
+}) => {
   return (
     <div>
       <input
@@ -9,6 +17,7 @@ const Input = ({ type, name, value, placeholder, error, errorMessage }) => {
         value={value}
         className="custom-input"
         placeholder={placeholder}
+        onChange={onChange}
       />
       {error && <p>{errorMessage}</p>}
     </div>

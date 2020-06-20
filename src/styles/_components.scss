@@ -1,7 +1,7 @@
 .custom-input {
   @extend .text-primary;
   outline: none;
-  max-height: 50px;
+  max-height: 40px;
   padding: 16px 10px;
   border-radius: 8px;
   line-height: 16px;
@@ -22,4 +22,16 @@
 }
 .star-icon {
   cursor: pointer;
+}
+.custom-button {
+  @extend .text-medium;
+  @extend .text-primary;
+  height: 40px;
+  border-radius: 8px;
+  background-color: map-get($theme-colors, "secondary");
+  border: none;
+  font-size: 18px;
+  &:hover {
+    background-color: rgba(43, 212, 219, 0.6);
+  }
 }

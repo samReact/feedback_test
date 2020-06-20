@@ -7,7 +7,7 @@ const StarIcon = ({ active, onClick, size }) => {
       className={`star-icon`}
       fill={active ? "orange" : "none"}
       onClick={onClick}
-      stroke="rgb(182, 184, 198)"
+      stroke={active ? "orange" : "rgb(182, 184, 198)"}
       height={size}
       width={size}
     />
