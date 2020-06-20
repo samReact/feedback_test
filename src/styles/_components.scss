@@ -1,0 +1,20 @@
+.custom-input {
+  outline: none;
+  max-height: 50px;
+  padding: 16px 10px;
+  // width: 100%;
+  color: rgb(12, 17, 66);
+  border-radius: 8px;
+  line-height: 16px;
+  &:focus {
+    border-color: rgb(43, 212, 219);
+  }
+  &.error {
+    border-color: rgb(238, 109, 95);
+  }
+}
+.custom-textarea {
+  border-radius: 8px;
+  outline: none;
+  padding: 16px 10px;
+}
