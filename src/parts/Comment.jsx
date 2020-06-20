@@ -10,6 +10,9 @@ const Comment = ({ comment }) => {
         {comment.name}
       </div>
       <p>{comment.comment}</p>
+      <span className="date">
+        Posted by {comment.email} on {comment.date}
+      </span>
     </div>
   );
 };

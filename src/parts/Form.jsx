@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import validator from "validator";
+import moment from "moment";
 
 import Input from "../components/Input";
 import StarGroup from "./StarGroup";
@@ -22,6 +23,7 @@ const Form = () => {
   const [form, setForm] = useState(initialForm);
   const [ready, setReady] = useState(false);
   const [errors, setErrors] = useState([]);
+  const [errorEmailFormat, setErrorEmailFormat] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -36,6 +38,8 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    let date = moment().format("MMM D, YYYY.");
+
     const updatedData = [...state.data];
     let handleRating = () => {
       if (form.rate === 5) {
@@ -55,8 +59,8 @@ const Form = () => {
       }
     };
     const id = state.comments.length;
-    const updatedFom = { id, ...form };
-    const comments = [...state.comments, updatedFom];
+    const updatedForm = { id, ...form, date };
+    const comments = [...state.comments, updatedForm];
     handleRating();
     dispatch({ type: ADD_COMMENT, payload: { comments, data: updatedData } });
     setForm(initialForm);
@@ -65,6 +69,14 @@ const Form = () => {
 
   const verification = (e) => {
     let updatedErrors = [...errors];
+    if (e.target.name === "email" && form.email.length > 0) {
+      if (!validator.isEmail(form.email)) {
+        console.log("fils de pute");
+        updatedErrors.push(e.target.name);
+        setErrors(updatedErrors);
+        return setErrorEmailFormat(true);
+      }
+    }
     if (validator.isEmpty(e.target.value)) {
       updatedErrors.push(e.target.name);
       return setErrors(updatedErrors);
@@ -82,6 +94,7 @@ const Form = () => {
       !validator.isEmpty(form.name) &&
       !validator.isEmpty(form.email) &&
       !validator.isEmpty(form.comment) &&
+      validator.isEmail(form.email) &&
       form.rate !== undefined
     ) {
       return setReady(true);
@@ -107,7 +120,11 @@ const Form = () => {
         value={form.email}
         type="email"
         name="email"
-        errorMessage="Email is required"
+        errorMessage={
+          errorEmailFormat
+            ? "Valid email address is required"
+            : "Email is required"
+        }
         onChange={handleChange}
         error={errors.find((error) => error === "email")}
         onBlur={verification}
