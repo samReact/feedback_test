@@ -4,3 +4,15 @@
   flex-direction: column;
   justify-content: space-around;
 }
+
+.comments {
+  overflow-y: hidden;
+  height: 100%;
+  &:hover {
+    overflow-y: auto;
+  }
+}
+.comment {
+  border-bottom: 1px solid map-get($theme-colors, "light-grey");
+  margin-bottom: 20px;
+}

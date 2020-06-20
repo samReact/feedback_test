@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import StarIcon from "../components/StarIcon";
 
-const StarGroup = () => {
+const StarGroup = ({ size, rate }) => {
   const [activeTabs, setActiveTabs] = useState();
 
   const toggleActiveTab = (i) => {
@@ -15,8 +15,9 @@ const StarGroup = () => {
       {[...Array(5)].map((elt, i) => (
         <StarIcon
           key={i}
-          active={i <= activeTabs}
+          active={i <= activeTabs || i < rate}
           onClick={() => toggleActiveTab(i)}
+          size={size}
         />
       ))}
     </div>

@@ -11,7 +11,21 @@ $theme-colors: (
   "secondary": rgb(43, 212, 219),
   "error": rgb(238, 109, 95),
   "grey": rgb(182, 184, 198),
+  "light-grey": #eaeaea,
 );
+
+$font-weights: (
+  "regular": 400,
+  "medium": 600,
+  "bold": 700,
+  "bolder": 900,
+);
+
+@each $name, $value in $font-weights {
+  .text-#{$name} {
+    font-weight: $value;
+  }
+}
 
 @each $color, $value in $theme-colors {
   .text-#{$color} {

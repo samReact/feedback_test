@@ -8,7 +8,7 @@ const Form = () => {
     <form className="form">
       <Input placeholder="name" />
       <Input placeholder="email" />
-      <StarGroup />
+      <StarGroup size={30} />
       <TextArea placeholder="Please tell us your feedback" />
     </form>
   );
