@@ -9,7 +9,7 @@ export const initialState = {
 function reducer(state, action) {
   switch (action.type) {
     case ADD_COMMENT:
-      return { ...state };
+      return { ...state, comments: action.payload };
     default:
       throw new Error();
   }

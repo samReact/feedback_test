@@ -8,9 +8,9 @@ export const comments = [
   },
   {
     id: 1,
-    rate: 4,
+    rate: 3,
     name: "Jean-Pierre",
-    comment: "Almost perfect, try to put more information.",
+    comment: "Was ok, try to put more information.",
     date: "Posted June 19, 2020",
   },
   {

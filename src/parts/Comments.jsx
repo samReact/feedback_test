@@ -4,7 +4,7 @@ import Comment from "./Comment";
 
 const Comments = () => {
   const state = useContext(StateContext);
-  const comments = state.comments;
+  const comments = state.comments.reverse();
 
   return (
     <div className="comments">
