@@ -7,6 +7,7 @@ const StarIcon = ({ active, onClick }) => {
       className={`star-icon`}
       fill={active ? "orange" : "none"}
       onClick={onClick}
+      stroke="rgb(182, 184, 198)"
     />
   );
 };
