@@ -1,4 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import validator from "validator";
+
 import Input from "../components/Input";
 import StarGroup from "./StarGroup";
 import TextArea from "../components/TextArea";
@@ -18,6 +20,8 @@ const Form = () => {
   };
 
   const [form, setForm] = useState(initialForm);
+  const [ready, setReady] = useState(false);
+  const [errors, setErrors] = useState([]);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -56,7 +60,34 @@ const Form = () => {
     handleRating();
     dispatch({ type: ADD_COMMENT, payload: { comments, data: updatedData } });
     setForm(initialForm);
+    setReady(false);
   };
+
+  const verification = (e) => {
+    let updatedErrors = [...errors];
+    if (validator.isEmpty(e.target.value)) {
+      updatedErrors.push(e.target.name);
+      return setErrors(updatedErrors);
+    }
+  };
+
+  const handleFocus = (e) => {
+    let updatedErrors = [...errors];
+    updatedErrors = updatedErrors.filter((error) => error !== e.target.name);
+    setErrors(updatedErrors);
+  };
+
+  useEffect(() => {
+    if (
+      !validator.isEmpty(form.name) &&
+      !validator.isEmpty(form.email) &&
+      !validator.isEmpty(form.comment) &&
+      form.rate !== undefined
+    ) {
+      return setReady(true);
+    }
+    setReady(false);
+  }, [form]);
 
   return (
     <form className="form">
@@ -66,13 +97,21 @@ const Form = () => {
         type="text"
         name="name"
         onChange={handleChange}
+        errorMessage="Last name is required"
+        error={errors.find((error) => error === "name")}
+        onBlur={verification}
+        onFocus={handleFocus}
       />
       <Input
         placeholder="email"
         value={form.email}
         type="email"
         name="email"
+        errorMessage="Email is required"
         onChange={handleChange}
+        error={errors.find((error) => error === "email")}
+        onBlur={verification}
+        onFocus={handleFocus}
       />
       <StarGroup
         size={30}
@@ -84,8 +123,12 @@ const Form = () => {
         value={form.comment}
         name="comment"
         onChange={handleChange}
+        errorMessage="Comment is required"
+        error={errors.find((error) => error === "comment")}
+        onBlur={verification}
+        onFocus={handleFocus}
       />
-      <Button title="Send comment" onClick={handleSubmit} />
+      <Button title="Send comment" onClick={handleSubmit} disabled={!ready} />
     </form>
   );
 };

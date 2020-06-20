@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import StarIcon from "../components/StarIcon";
 
 const StarGroup = ({ size, rate, toggleActiveTab, rating }) => {
-  console.log(rating);
   return (
     <div>
       {[...Array(5)].map((elt, i) => (

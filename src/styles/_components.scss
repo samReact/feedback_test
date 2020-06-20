@@ -1,4 +1,4 @@
-.custom-input {
+.input {
   @extend .text-primary;
   outline: none;
   max-height: 40px;
@@ -14,11 +14,23 @@
     border: 1px solid map-get($theme-colors, "error");
   }
 }
+.errormessage {
+  @extend .text-error;
+  margin: 8px 0px 0px;
+  padding: 0px;
+  font-size: 12px;
+}
 .custom-textarea {
   border: 1px solid map-get($theme-colors, "grey");
   border-radius: 8px;
   outline: none;
   padding: 16px 10px;
+  &:focus {
+    border: 1px solid map-get($theme-colors, "secondary");
+  }
+  &.error {
+    border: 1px solid map-get($theme-colors, "error");
+  }
 }
 .star-icon {
   cursor: pointer;
@@ -26,6 +38,8 @@
 .custom-button {
   @extend .text-medium;
   @extend .text-primary;
+  font-family: $Graphik, sans-serif;
+  outline: none;
   height: 40px;
   border-radius: 8px;
   background-color: map-get($theme-colors, "secondary");
@@ -33,5 +47,9 @@
   font-size: 18px;
   &:hover {
     background-color: rgba(43, 212, 219, 0.6);
+  }
+  &:disabled {
+    background-color: map-get($theme-colors, "grey");
+    opacity: 0.6;
   }
 }

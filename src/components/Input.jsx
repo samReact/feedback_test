@@ -8,6 +8,8 @@ const Input = ({
   error,
   errorMessage,
   onChange,
+  onBlur,
+  onFocus,
 }) => {
   return (
     <div>
@@ -15,11 +17,13 @@ const Input = ({
         type={type}
         name={name}
         value={value}
-        className="custom-input"
+        className={`input ${error ? "error" : undefined}`}
         placeholder={placeholder}
         onChange={onChange}
+        onBlur={onBlur}
+        onFocus={onFocus}
       />
-      {error && <p>{errorMessage}</p>}
+      {error && <p className="errormessage">{errorMessage}</p>}
     </div>
   );
 };
