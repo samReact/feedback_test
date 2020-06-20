@@ -1,8 +1,14 @@
 import React from "react";
 import { ReactComponent as Star } from "../assets/star.svg";
 
-const StarIcon = (props) => {
-  return <Star {...props} className="star-icon" />;
+const StarIcon = ({ active, onClick }) => {
+  return (
+    <Star
+      className={`star-icon`}
+      fill={active ? "orange" : "none"}
+      onClick={onClick}
+    />
+  );
 };
 
 export default StarIcon;
