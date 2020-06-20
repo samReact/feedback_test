@@ -3,6 +3,7 @@ import "./styles/styles.scss";
 import Form from "./parts/Form";
 import reducer, { initialState } from "./store/reducer";
 import Comments from "./parts/Comments";
+import Chart from "./parts/Chart";
 
 export const StateContext = React.createContext();
 export const DispatchContext = React.createContext();
@@ -18,7 +19,9 @@ function App() {
               <Form />
             </div>
           </div>
-          <div>chart</div>
+          <div>
+            <Chart />
+          </div>
           <div>
             <Comments />
           </div>

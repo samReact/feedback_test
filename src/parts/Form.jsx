@@ -32,13 +32,32 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const updatedData = [...state.data];
+    let handleRating = () => {
+      if (form.rate === 5) {
+        updatedData[0]++;
+      }
+      if (form.rate === 4) {
+        updatedData[1]++;
+      }
+      if (form.rate === 3) {
+        updatedData[2]++;
+      }
+      if (form.rate === 2) {
+        updatedData[3]++;
+      }
+      if (form.rate === 1) {
+        updatedData[4]++;
+      }
+    };
     const id = state.comments.length;
     const updatedFom = { id, ...form };
-    const payload = [...state.comments, updatedFom];
-    dispatch({ type: ADD_COMMENT, payload });
+    const comments = [...state.comments, updatedFom];
+    handleRating();
+    dispatch({ type: ADD_COMMENT, payload: { comments, data: updatedData } });
     setForm(initialForm);
   };
-  console.log(form.rate);
+
   return (
     <form className="form">
       <Input

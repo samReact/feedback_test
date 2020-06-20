@@ -1,7 +1,7 @@
 export const comments = [
   {
     id: 0,
-    rate: 5,
+    rate: 4,
     name: "Abdullah",
     comment: "Very nice transaction, safe and secure !",
     date: "Posted June 21, 2020",
@@ -25,6 +25,13 @@ export const comments = [
     rate: 2,
     name: "Grace",
     comment: "Not happy at all, found much better with better rates",
+    date: "Posted December 6, 2019",
+  },
+  {
+    id: 4,
+    rate: 1,
+    name: "Chang Lee",
+    comment: "Worst experience ever",
     date: "Posted December 6, 2019",
   },
 ];
