@@ -1,0 +1,17 @@
+.App {
+  display: grid;
+  padding: 20px;
+  grid-template-columns: 2fr 2fr;
+  grid-template-rows: 50vh 30vh;
+  grid-gap: 20px;
+  font-family: "Graphik-Regular-Web";
+}
+
+.App-form {
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
+  height: 100%;
+  // margin: 10px;
+  // box-sizing: content-box;
+}

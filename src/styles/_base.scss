@@ -4,4 +4,17 @@
     url(../assets/Graphik-Regular-Web.ttf) format("ttf");
 }
 
-$Graphik: "Graphik-Regular-Web ";
+$Graphik: "Graphik-Regular-Web";
+
+$theme-colors: (
+  "primary": rgb(12, 17, 66),
+  "secondary": rgb(43, 212, 219),
+  "error": rgb(238, 109, 95),
+  "grey": rgb(182, 184, 198),
+);
+
+@each $color, $value in $theme-colors {
+  .text-#{$color} {
+    color: $value;
+  }
+}

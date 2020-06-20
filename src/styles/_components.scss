@@ -1,19 +1,21 @@
 .custom-input {
+  @extend .text-primary;
   outline: none;
   max-height: 50px;
   padding: 16px 10px;
-  // width: 100%;
-  color: rgb(12, 17, 66);
   border-radius: 8px;
   line-height: 16px;
+  box-shadow: none;
+  border: 1px solid map-get($theme-colors, "grey");
   &:focus {
-    border-color: rgb(43, 212, 219);
+    border: 1px solid map-get($theme-colors, "secondary");
   }
   &.error {
-    border-color: rgb(238, 109, 95);
+    border: 1px solid map-get($theme-colors, "error");
   }
 }
 .custom-textarea {
+  border: 1px solid map-get($theme-colors, "grey");
   border-radius: 8px;
   outline: none;
   padding: 16px 10px;
