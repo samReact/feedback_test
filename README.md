@@ -13,3 +13,7 @@
 
 4. Open your favorite browser to :  
    `http://localhost:3000`
+
+### Running tests
+
+`npm run test`
