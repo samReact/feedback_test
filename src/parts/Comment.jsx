@@ -9,7 +9,7 @@ const Comment = ({ comment }) => {
         <StarGroup size={14} rate={comment.rate} />
         {comment.name}
       </div>
-      <p>{comment.comment}</p>
+      <p data-testid="comment">{comment.comment}</p>
       <span className="date">
         Posted by {comment.email} on {comment.date}
       </span>
