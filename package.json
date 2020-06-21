@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^7.1.2",
     "chart.js": "^2.9.3",
     "moment": "^2.27.0",
+    "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
