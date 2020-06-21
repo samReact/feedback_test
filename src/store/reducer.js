@@ -4,13 +4,12 @@ import { comments } from "../utils/datas";
 
 export const initialState = {
   comments,
-  data: [1, 1, 1, 1, 1],
+  data: [2, 1, 1, 1, 1],
 };
 
 function reducer(state, action) {
   switch (action.type) {
     case ADD_COMMENT:
-      console.log(action.payload);
       return {
         ...state,
         comments: action.payload.comments,

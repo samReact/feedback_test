@@ -32,6 +32,7 @@ const ChartPart = () => {
       },
     });
     setChart(chart);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -39,6 +40,7 @@ const ChartPart = () => {
       chart.data.datasets[0].data = data;
       chart.update();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   return <canvas ref={chartEl} />;

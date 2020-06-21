@@ -71,7 +71,6 @@ const Form = () => {
     let updatedErrors = [...errors];
     if (e.target.name === "email" && form.email.length > 0) {
       if (!validator.isEmail(form.email)) {
-        console.log("fils de pute");
         updatedErrors.push(e.target.name);
         setErrors(updatedErrors);
         return setErrorEmailFormat(true);
