@@ -14,11 +14,9 @@ function App() {
     <DispatchContext.Provider value={dispatch}>
       <StateContext.Provider value={state}>
         <div className="App">
-          {/* <div className="App-header"> */}
           <div className="App-form">
             <Form />
           </div>
-          {/* </div>  */}
           <div className="App-chart">
             <Chart />
           </div>
