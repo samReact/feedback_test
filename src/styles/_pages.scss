@@ -5,8 +5,29 @@
   grid-template-rows: 50vh 30vh;
   grid-gap: 20px;
   font-family: "Graphik-Regular-Web", sans-serif;
+  grid-template-areas: "form chart" "comments comments";
 }
 
 .App-form {
   height: 100%;
+  grid-area: form;
+}
+
+.App-chart {
+  grid-area: chart;
+}
+
+.App-comments {
+  grid-area: comments;
+}
+
+@media (max-width: 576px) {
+  .App {
+    grid-template-columns: 100%;
+    grid-template-rows: 30% 10% auto;
+    grid-template-areas:
+      "form"
+      "chart"
+      "comments";
+  }
 }
